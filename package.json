@@ -2,7 +2,14 @@
   "name": "open-file-from-github-url-in-vs-code",
 	"displayName": "Open file from github url in vs code",
 	"description": "Open file from github url in vs code",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Hee-San/open-file-from-github-url-in-vs-code"
+	},
+	"bugs": {
+		"url": "https://github.com/Hee-San/open-file-from-github-url-in-vs-code/issues"
+	},
 	"engines": {
 		"vscode": "^1.66.0"
 	},
