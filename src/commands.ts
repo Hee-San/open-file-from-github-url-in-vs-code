@@ -7,18 +7,16 @@ export function openFile(githubUrl: string): void {
 }
 
 export function parseGithubUrl(githubUrl: string): string {
-    let re = /https:\/\/github\.com\/.+\/blob\/[^\/]+\/(.*)/;
-    let matches = re.exec(githubUrl);
-    if (matches === null) { throw new Error('Failed to parse github url: ' + githubUrl); }
+    let matches = githubUrl.match(/https:\/\/github\.com\/.+\/blob\/[^\/]+\/([^#]+)(#L\d+|#L\d+\-L\d+|)$/);
 
-    let filePath = matches[1].split('#')[0];
+    if (matches === null || matches.length !== 3) { throw new Error('Failed to parse github url: ' + githubUrl); }
 
-    let lineRange = matches[1].split('#')[1];
-    if (lineRange) {
-        let lineRangeRe = /L(\d+)-L(\d+)/;
-        let lineRangeMatches = lineRangeRe.exec(lineRange);
-        if (lineRangeMatches === null) { throw new Error('Failed to parse line range: ' + lineRange); }
-        filePath += ':' + lineRangeMatches[1];
+    let filePath = matches[1];
+
+    if (matches[2].length > 0) {
+        let line = matches[2].match(/^#L(\d+)/);
+        if (line === null) { throw new Error('Failed to parse line range: ' + matches[2]); }
+        filePath += ':' + line[1];
     }
 
     console.log('filePath: ' + filePath);
