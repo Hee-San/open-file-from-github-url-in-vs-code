@@ -10,6 +10,8 @@
 	"bugs": {
 		"url": "https://github.com/Hee-San/open-file-from-github-url-in-vs-code/issues"
 	},
+	"publisher": "t.hirashima",
+    "license": "MIT",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
