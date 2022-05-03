@@ -10,14 +10,14 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:open-file-from-github-url-in-vs-code.helloWorld"
+        "onCommand:open-file-from-github-url-in-vs-code.openFile"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "open-file-from-github-url-in-vs-code.helloWorld",
-				"title": "Hello World"
+				"command": "open-file-from-github-url-in-vs-code.openFile",
+				"title": "Open file from GitHub URL"
 			}
 		]
 	},
